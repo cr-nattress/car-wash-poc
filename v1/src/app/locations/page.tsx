@@ -7,8 +7,8 @@ import { getLocations } from '@/lib/data'
 import { formatPhone } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: 'Our Locations | Shine On Car Wash',
-  description: 'Find a Shine On Car Wash location near you. We have 2 convenient locations serving the Scranton and Wilkes-Barre areas.',
+  title: 'Our Locations | Superior Car Wash',
+  description: 'Find a Superior Car Wash location near you. We have 2 convenient locations serving the Scranton and Wilkes-Barre areas.',
 }
 
 export default async function LocationsPage() {
@@ -22,7 +22,7 @@ export default async function LocationsPage() {
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="mb-4 text-5xl font-bold">Our Locations</h1>
             <p className="text-xl text-primary-50">
-              Find a Shine On Car Wash near you. We have 2 convenient locations ready to serve you.
+              Find a Superior Car Wash near you. We have 2 convenient locations ready to serve you.
             </p>
           </div>
         </Container>

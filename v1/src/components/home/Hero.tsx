@@ -29,7 +29,7 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight lg:text-7xl">
-            Shine On Car Wash
+            Superior Car Wash
           </h1>
 
           {/* Subheadline */}

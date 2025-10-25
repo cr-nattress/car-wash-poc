@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   }
 
   return {
-    title: `${service.name} | Shine On Car Wash`,
+    title: `${service.name} | Superior Car Wash`,
     description: service.description,
   }
 }

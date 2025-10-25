@@ -19,7 +19,7 @@ export default async function TestimonialsSection() {
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-600">
             Don&apos;t just take our word for it. Here&apos;s what our satisfied customers have to say about
-            their experience with Shine On Car Wash.
+            their experience with Superior Car Wash.
           </p>
         </div>
 

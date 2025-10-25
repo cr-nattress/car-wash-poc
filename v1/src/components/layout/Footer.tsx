@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Container from '@/components/ui/Container'
+import NewsletterSignup from '@/components/common/NewsletterSignup'
 import { SITE_NAME, MAIN_PHONE, SUPPORT_EMAIL, SOCIAL_MEDIA } from '@/lib/constants'
 
 const footerNavigation = {
@@ -18,7 +19,7 @@ const footerNavigation = {
   company: [
     { name: 'About Us', href: '/about' },
     { name: 'Locations', href: '/locations' },
-    { name: 'Careers', href: '/careers' },
+    { name: 'Book Appointment', href: '/book' },
     { name: 'Contact', href: '/contact' },
   ],
   support: [
@@ -159,6 +160,21 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+
+          {/* Newsletter section */}
+          <div className="mt-12">
+            <div className="rounded-lg bg-gray-800 p-8">
+              <div className="mx-auto max-w-2xl">
+                <h3 className="mb-2 text-center text-2xl font-bold text-white">
+                  Stay in the Loop
+                </h3>
+                <p className="mb-6 text-center text-gray-400">
+                  Get exclusive offers, car care tips, and updates delivered to your inbox.
+                </p>
+                <NewsletterSignup variant="inline" showName={false} />
+              </div>
             </div>
           </div>
 

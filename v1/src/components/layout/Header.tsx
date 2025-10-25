@@ -11,7 +11,7 @@ const navigation = [
   { name: 'Services', href: '/services' },
   { name: 'Pricing', href: '/pricing' },
   { name: 'Locations', href: '/locations' },
-  { name: 'About', href: '/about' },
+  { name: 'FAQ', href: '/faq' },
   { name: 'Contact', href: '/contact' },
 ]
 
@@ -93,9 +93,9 @@ export default function Header() {
             >
               {MAIN_PHONE}
             </a>
-            <Link href="/pricing">
+            <Link href="/book">
               <Button variant="primary" size="sm">
-                Join Now
+                Book Now
               </Button>
             </Link>
           </div>
@@ -123,9 +123,9 @@ export default function Header() {
                   {MAIN_PHONE}
                 </a>
                 <div className="px-3 pt-2">
-                  <Link href="/pricing">
+                  <Link href="/book">
                     <Button variant="primary" fullWidth>
-                      Join Now
+                      Book Now
                     </Button>
                   </Link>
                 </div>

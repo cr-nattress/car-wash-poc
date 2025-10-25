@@ -5,9 +5,9 @@ import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
 
 export const metadata: Metadata = {
-  title: 'About Us | Shine On Car Wash',
+  title: 'About Us | Superior Car Wash',
   description:
-    'Learn about Shine On Car Wash, our commitment to quality, and our AI-powered car wash technology.',
+    'Learn about Superior Car Wash, our commitment to quality, and our AI-powered car wash technology.',
 }
 
 export default function AboutPage() {
@@ -17,7 +17,7 @@ export default function AboutPage() {
       <section className="bg-gradient-to-br from-primary-500 to-primary-700 py-16 text-white">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-5xl font-bold">About Shine On Car Wash</h1>
+            <h1 className="mb-4 text-5xl font-bold">About Superior Car Wash</h1>
             <p className="text-xl text-primary-50">
               Delivering premium car care with cutting-edge technology and exceptional service since 2020.
             </p>
@@ -32,7 +32,7 @@ export default function AboutPage() {
             <h2 className="mb-6 text-center text-4xl font-bold text-gray-900">Our Story</h2>
             <div className="prose prose-lg mx-auto">
               <p>
-                Founded in 2020, Shine On Car Wash was born from a simple idea: car care should be
+                Founded in 2020, Superior Car Wash was born from a simple idea: car care should be
                 convenient, affordable, and deliver exceptional results every time. We saw an
                 opportunity to combine traditional car wash excellence with modern technology to
                 create an experience that exceeds expectations.
@@ -193,7 +193,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-4 text-3xl font-bold">Experience the Difference</h2>
             <p className="mb-6 text-lg text-primary-50">
-              Join thousands of satisfied customers who trust Shine On Car Wash with their vehicles.
+              Join thousands of satisfied customers who trust Superior Car Wash with their vehicles.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link href="/pricing">

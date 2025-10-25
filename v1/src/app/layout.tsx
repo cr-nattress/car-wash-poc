@@ -7,7 +7,7 @@ import Footer from '@/components/layout/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Shine On Car Wash | Premium Car Wash Service',
+  title: 'Superior Car Wash | Premium Car Wash Service',
   description: 'Premium car wash service with AI-powered features',
 }
 

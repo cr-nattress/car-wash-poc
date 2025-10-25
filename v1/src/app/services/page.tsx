@@ -7,7 +7,7 @@ import Badge from '@/components/ui/Badge'
 import { getServices } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Our Services | Shine On Car Wash',
+  title: 'Our Services | Superior Car Wash',
   description:
     'Explore our full range of car wash services, from quick express washes to comprehensive detailing packages.',
 }

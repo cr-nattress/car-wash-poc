@@ -7,7 +7,7 @@ import Badge from '@/components/ui/Badge'
 import { getPricingTiers } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Membership Pricing | Shine On Car Wash',
+  title: 'Membership Pricing | Superior Car Wash',
   description:
     'Choose the perfect unlimited car wash membership for your vehicle. Plans starting at just $24/month with no long-term contracts.',
 }
@@ -181,7 +181,7 @@ export default async function PricingPage() {
             <h2 className="mb-4 text-3xl font-bold">Ready to Get Started?</h2>
             <p className="mb-6 text-lg text-primary-50">
               Join thousands of satisfied members who keep their vehicles looking their best with
-              Shine On Car Wash.
+              Superior Car Wash.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link href="/contact">
