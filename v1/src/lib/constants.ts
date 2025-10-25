@@ -6,7 +6,7 @@ export const SITE_NAME = 'Superior Car Wash'
 export const SITE_DESCRIPTION = 'Premium car wash service with AI-powered features'
 export const SITE_URL = process.env['NEXT_PUBLIC_SITE_URL'] || 'https://superiorcarwash.com'
 
-export const MAIN_PHONE = '(570) 555-0100'
+export const MAIN_PHONE = '(570) 459-7000'
 export const SUPPORT_EMAIL = 'support@superiorcarwash.com'
 
 export const MIN_MEMBERSHIP_PRICE = 24

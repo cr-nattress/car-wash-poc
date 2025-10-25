@@ -1,30 +1,22 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Container from '@/components/ui/Container'
 import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
-import { PricingCardSkeleton } from '@/components/ui/Skeleton'
 import FadeIn from '@/components/animations/FadeIn'
 import ScaleIn from '@/components/animations/ScaleIn'
-import { getPricingTiers } from '@/lib/data'
 import type { PricingTier } from '@/types'
+
+interface PricingPreviewProps {
+  tiers: PricingTier[]
+}
 
 /**
  * Pricing preview section for the homepage
  */
-export default function PricingPreview() {
-  const [tiers, setTiers] = useState<PricingTier[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    getPricingTiers().then(data => {
-      setTiers(data)
-      setLoading(false)
-    })
-  }, [])
+export default function PricingPreview({ tiers }: PricingPreviewProps) {
 
   return (
     <section className="bg-white py-16 lg:py-24">
@@ -43,20 +35,13 @@ export default function PricingPreview() {
         </FadeIn>
 
         {/* Pricing cards */}
-        {loading ? (
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            {Array.from({ length: 3 }).map((_, i) => (
-              <PricingCardSkeleton key={i} />
-            ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            {tiers.map((tier, index) => (
-            <ScaleIn key={tier.id} delay={index * 0.1}>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          {tiers.map((tier, index) => (
+            <ScaleIn key={tier.id} delay={index * 0.1} className="h-full">
               <Card
                 variant={tier.popular ? 'elevated' : 'default'}
                 padding="none"
-                className={tier.popular ? 'border-2 border-primary-500' : ''}
+                className={`h-full flex flex-col ${tier.popular ? 'border-2 border-primary-500' : ''}`}
               >
               {tier.popular && (
                 <div className="bg-primary-500 px-6 py-2 text-center">
@@ -66,7 +51,7 @@ export default function PricingPreview() {
                 </div>
               )}
 
-              <div className="p-8">
+              <div className="flex flex-col flex-1 p-8">
                 {/* Tier name and price */}
                 <div className="mb-6 text-center">
                   <h3 className="mb-2 text-2xl font-bold text-gray-900">{tier.name}</h3>
@@ -80,7 +65,7 @@ export default function PricingPreview() {
                 </div>
 
                 {/* Features list */}
-                <ul className="mb-8 space-y-3">
+                <ul className="mb-8 space-y-3 flex-1">
                   {tier.features.map((feature, index) => (
                     <li key={index} className="flex items-start text-sm text-gray-600">
                       <svg
@@ -113,8 +98,7 @@ export default function PricingPreview() {
               </Card>
             </ScaleIn>
           ))}
-          </div>
-        )}
+        </div>
 
         {/* Additional info */}
         <FadeIn delay={0.4}>

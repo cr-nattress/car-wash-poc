@@ -2,14 +2,25 @@ import Hero from '@/components/home/Hero'
 import ServicesShowcase from '@/components/home/ServicesShowcase'
 import PricingPreview from '@/components/home/PricingPreview'
 import TestimonialsSection from '@/components/home/TestimonialsSection'
+import { getServices, getPricingTiers, getTestimonialsByRating } from '@/lib/data'
 
-export default function HomePage() {
+export default async function HomePage() {
+  // Load all data server-side
+  const services = await getServices()
+  const pricingTiers = await getPricingTiers()
+  const testimonials = await getTestimonialsByRating(5)
+
+  // Filter to show only the three main wash tiers
+  const washTiers = services.filter(s =>
+    ['express-wash', 'deluxe-wash', 'ultimate-wash'].includes(s.id)
+  )
+
   return (
     <>
       <Hero />
-      <ServicesShowcase />
-      <PricingPreview />
-      <TestimonialsSection />
+      <ServicesShowcase services={washTiers} />
+      <PricingPreview tiers={pricingTiers} />
+      <TestimonialsSection testimonials={testimonials.slice(0, 6)} />
     </>
   )
 }

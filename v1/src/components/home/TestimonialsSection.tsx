@@ -1,28 +1,20 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Container from '@/components/ui/Container'
 import Card from '@/components/ui/Card'
-import { TestimonialSkeleton } from '@/components/ui/Skeleton'
 import FadeIn from '@/components/animations/FadeIn'
 import StaggerChildren, { StaggerItem } from '@/components/animations/StaggerChildren'
 import AnimatedCounter from '@/components/animations/AnimatedCounter'
-import { getTestimonialsByRating } from '@/lib/data'
 import type { Testimonial } from '@/types'
+
+interface TestimonialsSectionProps {
+  testimonials: Testimonial[]
+}
 
 /**
  * Testimonials section for the homepage
  */
-export default function TestimonialsSection() {
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    getTestimonialsByRating(5).then(data => {
-      setTestimonials(data.slice(0, 6)) // Show first 6
-      setLoading(false)
-    })
-  }, [])
+export default function TestimonialsSection({ testimonials }: TestimonialsSectionProps) {
 
   return (
     <section className="bg-gray-50 py-16 lg:py-24">
@@ -41,15 +33,8 @@ export default function TestimonialsSection() {
         </FadeIn>
 
         {/* Testimonials grid */}
-        {loading ? (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <TestimonialSkeleton key={i} />
-            ))}
-          </div>
-        ) : (
-          <StaggerChildren className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
-            {testimonials.map(testimonial => (
+        <StaggerChildren className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
+          {testimonials.map(testimonial => (
             <StaggerItem key={testimonial.id}>
               <Card variant="default" padding="md">
               {/* Rating stars */}
@@ -96,8 +81,7 @@ export default function TestimonialsSection() {
               </Card>
             </StaggerItem>
           ))}
-          </StaggerChildren>
-        )}
+        </StaggerChildren>
 
         {/* Trust indicators */}
         <FadeIn delay={0.4}>

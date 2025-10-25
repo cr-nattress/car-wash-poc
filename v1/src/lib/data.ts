@@ -21,12 +21,19 @@ async function parseMarkdown(content: string): Promise<string> {
 async function parseMarkdownFile<T>(filePath: string): Promise<Array<T & { content: string }>> {
   const fileContents = fs.readFileSync(filePath, 'utf8')
 
-  // Split by --- to handle multiple entries in one file
-  const entries = fileContents.split(/\n---\n/).filter(entry => entry.trim())
+  // Split by --- with blank line to handle multiple entries in one file
+  // Pattern: ---\n\n--- (triple dash, newline, newline, triple dash)
+  const entries = fileContents.split(/---\s*\n\s*---/).filter(entry => entry.trim())
 
   const parsedEntries = await Promise.all(
     entries.map(async entry => {
-      const { data, content } = matter(entry.trim())
+      // Ensure entry has proper frontmatter delimiters
+      const trimmedEntry = entry.trim()
+      const entryWithDelimiters = trimmedEntry.startsWith('---')
+        ? trimmedEntry
+        : `---\n${trimmedEntry}`
+
+      const { data, content } = matter(entryWithDelimiters)
       const htmlContent = await parseMarkdown(content)
 
       return {

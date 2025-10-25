@@ -1,10 +1,6 @@
-'use client'
-
 import Link from 'next/link'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
-import FadeIn from '@/components/animations/FadeIn'
-import StaggerChildren, { StaggerItem } from '@/components/animations/StaggerChildren'
 
 /**
  * Hero section for the homepage
@@ -20,37 +16,30 @@ export default function Hero() {
       <Container className="relative">
         <div className="mx-auto max-w-3xl text-center">
           {/* Badge */}
-          <FadeIn delay={0.1}>
-            <div className="mb-6 inline-flex items-center rounded-full bg-white/20 px-4 py-2 text-sm font-semibold backdrop-blur-sm">
-              <svg
-                className="mr-2 h-5 w-5 text-yellow-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              AI-Powered Spot Detection
-            </div>
-          </FadeIn>
+          <div className="mb-6 inline-flex items-center rounded-full bg-white/20 px-4 py-2 text-sm font-semibold backdrop-blur-sm">
+            <svg
+              className="mr-2 h-5 w-5 text-yellow-500"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            AI-Powered Spot Detection
+          </div>
 
           {/* Headline */}
-          <FadeIn delay={0.2}>
-            <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight lg:text-7xl">
-              Superior Car Wash
-            </h1>
-          </FadeIn>
+          <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight lg:text-7xl">
+            Superior Car Wash
+          </h1>
 
           {/* Subheadline */}
-          <FadeIn delay={0.3}>
-            <p className="mb-8 text-xl leading-relaxed text-primary-50 lg:text-2xl">
-              Premium car wash service with cutting-edge AI technology. Your vehicle deserves the
-              best care, and we deliver it every time.
-            </p>
-          </FadeIn>
+          <p className="mb-8 text-xl leading-relaxed text-primary-50 lg:text-2xl">
+            Premium car wash service with cutting-edge AI technology. Your vehicle deserves the
+            best care, and we deliver it every time.
+          </p>
 
           {/* CTA Buttons */}
-          <FadeIn delay={0.4}>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link href="/pricing">
               <Button variant="secondary" size="lg" className="min-w-[200px]">
                 Join Our Membership
@@ -65,12 +54,11 @@ export default function Hero() {
                 View Services
               </Button>
             </Link>
-            </div>
-          </FadeIn>
+          </div>
 
           {/* Features list */}
-          <StaggerChildren className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3" staggerDelay={0.1}>
-            <StaggerItem className="flex flex-col items-center">
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            <div className="flex flex-col items-center">
               <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
                 <svg
                   className="h-6 w-6 text-yellow-500"
@@ -90,7 +78,7 @@ export default function Hero() {
               <p className="text-sm text-primary-100">Wash anytime, day or night</p>
             </div>
 
-            <StaggerItem className="flex flex-col items-center">
+            <div className="flex flex-col items-center">
               <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
                 <svg
                   className="h-6 w-6 text-yellow-500"
@@ -110,7 +98,7 @@ export default function Hero() {
               <p className="text-sm text-primary-100">In and out in 5 minutes</p>
             </div>
 
-            <StaggerItem className="flex flex-col items-center">
+            <div className="flex flex-col items-center">
               <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
                 <svg
                   className="h-6 w-6 text-yellow-500"

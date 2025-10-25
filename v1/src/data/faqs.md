@@ -141,7 +141,7 @@ keywords:
   - time
 ---
 
-Our Downtown Scranton location is open 24/7 with full self-service bays always available. The automatic wash system operates from 6 AM to 11 PM. Our Wilkes-Barre location is open from 5 AM to midnight daily, with Sunday hours starting at 7 AM and ending at 10 PM.
+Our West Hazleton location is open 24/7 with full self-service bays always available. The automatic wash system operates from 6 AM to 11 PM. Our Dallas location is open from 5 AM to midnight daily, with Sunday hours starting at 7 AM and ending at 10 PM.
 
 ---
 
@@ -158,7 +158,7 @@ keywords:
   - size
 ---
 
-Yes! Our automatic wash tunnels can accommodate vehicles up to 7 feet tall and 8 feet wide, which includes most trucks, SUVs, and vans. Our Wilkes-Barre location has specialized bays for extra-large vehicles. If you're unsure, our staff can help determine if your vehicle will fit.
+Yes! Our automatic wash tunnels can accommodate vehicles up to 7 feet tall and 8 feet wide, which includes most trucks, SUVs, and vans. Our Dallas location has specialized bays for extra-large vehicles. If you're unsure, our staff can help determine if your vehicle will fit.
 
 ---
 
@@ -190,7 +190,7 @@ keywords:
   - where
 ---
 
-Yes! Your membership is valid at both our Downtown Scranton and Wilkes-Barre locations. You can visit whichever location is most convenient for you, and your membership benefits apply equally at both sites.
+Yes! Your membership is valid at both our West Hazleton and Dallas locations. You can visit whichever location is most convenient for you, and your membership benefits apply equally at both sites.
 
 ---
 
@@ -290,7 +290,7 @@ keywords:
   - truck
 ---
 
-For oversized vehicles, we recommend our self-service bays which can accommodate most RVs and commercial trucks. Our Wilkes-Barre location has taller bay clearances. For very large commercial vehicles, please call ahead and we can discuss custom washing solutions.
+For oversized vehicles, we recommend our self-service bays which can accommodate most RVs and commercial trucks. Our Dallas location has taller bay clearances. For very large commercial vehicles, please call ahead and we can discuss custom washing solutions.
 
 ---
 

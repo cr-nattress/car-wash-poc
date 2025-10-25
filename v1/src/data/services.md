@@ -95,7 +95,7 @@ features:
 
 Take control with our self-service bays equipped with professional-grade equipment. Perfect for detail-oriented car owners who want to wash their vehicle their way.
 
-Starting at just $3, you pay only for the time you use. Our bays are open 24/7 at our Downtown Scranton location for ultimate convenience.
+Starting at just $3, you pay only for the time you use. Our bays are open 24/7 at our West Hazleton location for ultimate convenience.
 
 ---
 
@@ -152,7 +152,7 @@ The ultimate vehicle makeover combines our most thorough exterior and interior s
 
 Our full detail includes paint decontamination with clay bar treatment, hand-applied wax for deep shine, complete interior detailing, and even engine bay cleaning. We guarantee you'll be thrilled with the results or we'll make it right.
 
-**Book Now:** Full detail packages require advance scheduling and typically take 2-3 hours to complete. Call us at (570) 555-0100 to reserve your spot.
+**Book Now:** Full detail packages require advance scheduling and typically take 2-3 hours to complete. Call us at (570) 459-7000 to reserve your spot.
 
 ---
 

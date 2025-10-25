@@ -1,30 +1,22 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Container from '@/components/ui/Container'
 import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
-import { CardSkeleton } from '@/components/ui/Skeleton'
 import FadeIn from '@/components/animations/FadeIn'
 import StaggerChildren, { StaggerItem } from '@/components/animations/StaggerChildren'
-import { getServices } from '@/lib/data'
 import type { Service } from '@/types'
+
+interface ServicesShowcaseProps {
+  services: Service[]
+}
 
 /**
  * Services showcase section for the homepage
  */
-export default function ServicesShowcase() {
-  const [services, setServices] = useState<Service[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    getServices().then(data => {
-      setServices(data.slice(0, 6)) // Show first 6 services
-      setLoading(false)
-    })
-  }, [])
+export default function ServicesShowcase({ services }: ServicesShowcaseProps) {
 
   return (
     <section className="bg-gray-50 py-16 lg:py-24">
@@ -32,75 +24,72 @@ export default function ServicesShowcase() {
         {/* Section header */}
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-gray-900 lg:text-5xl">Our Services</h2>
+            <h2 className="mb-4 text-4xl font-bold text-gray-900 lg:text-5xl">Choose Your Wash</h2>
             <p className="mx-auto max-w-2xl text-lg text-gray-600">
-              From quick express washes to comprehensive detailing, we have the perfect service for
-              every need and budget.
+              Three levels of superior care for your vehicle. All using touchless technology to
+              protect your paint.
             </p>
           </div>
         </FadeIn>
 
         {/* Services grid */}
-        {loading ? (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <CardSkeleton key={i} />
-            ))}
-          </div>
-        ) : (
-          <StaggerChildren className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
-            {services.map(service => (
+        <StaggerChildren className="grid grid-cols-1 gap-8 lg:grid-cols-3" staggerDelay={0.1}>
+          {services.map((service, index) => (
             <StaggerItem key={service.id}>
-              <Card variant="default" padding="none" className="overflow-hidden">
-              {/* Service image placeholder */}
-              <div className="h-48 bg-gradient-to-br from-primary-100 to-primary-200">
-                <div className="flex h-full items-center justify-center">
-                  <svg
-                    className="h-24 w-24 text-primary-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                    />
-                  </svg>
+              <Card
+                variant={index === 2 ? 'elevated' : 'default'}
+                padding="none"
+                className={`h-full ${index === 2 ? 'border-2 border-primary-500' : ''}`}
+              >
+              {index === 2 && (
+                <div className="bg-primary-500 px-6 py-2 text-center">
+                  <Badge variant="warning" size="sm">
+                    Best Value
+                  </Badge>
                 </div>
-              </div>
+              )}
 
-              <div className="p-6">
-                <div className="mb-3 flex items-start justify-between">
-                  <h3 className="text-xl font-bold text-gray-900">{service.name}</h3>
-                  {service.category && (
-                    <Badge
-                      variant={
-                        service.category === 'ultimate'
-                          ? 'secondary'
-                          : service.category === 'premium'
-                            ? 'primary'
-                            : 'info'
-                      }
-                      size="sm"
-                    >
-                      {service.category}
-                    </Badge>
-                  )}
+              <div className="p-8">
+                {/* Service name and price */}
+                <div className="mb-6 text-center">
+                  <div className="mb-2 flex items-center justify-center gap-2">
+                    <h3 className="text-2xl font-bold text-gray-900">{service.name}</h3>
+                  </div>
+                  <p className="mb-4 text-gray-600">{service.description}</p>
+                  <div className="flex items-baseline justify-center">
+                    <span className="text-5xl font-bold text-gray-900">${service.price}</span>
+                  </div>
+                  <p className="mt-2 text-sm text-gray-500">{service.duration}</p>
                 </div>
 
-                <p className="mb-4 text-gray-600">{service.description}</p>
-
-                <div className="mb-4 flex items-center justify-between text-sm text-gray-500">
-                  <span>⏱️ {service.duration}</span>
-                  {service.price && (
-                    <span className="text-lg font-bold text-primary-600">${service.price}</span>
-                  )}
-                </div>
+                {/* Features list */}
+                {service.features && (
+                  <ul className="mb-8 space-y-3 border-t border-gray-200 pt-6">
+                    {service.features.slice(0, 5).map((feature, idx) => (
+                      <li key={idx} className="flex items-start text-sm text-gray-600">
+                        <svg
+                          className="mr-2 mt-0.5 h-5 w-5 flex-shrink-0 text-green-500"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
                 <Link href={`/services/${service.id}`}>
-                  <Button variant="outline" size="sm" fullWidth>
+                  <Button
+                    variant={index === 2 ? 'primary' : 'outline'}
+                    size="lg"
+                    fullWidth
+                  >
                     Learn More
                   </Button>
                 </Link>
@@ -108,8 +97,7 @@ export default function ServicesShowcase() {
               </Card>
             </StaggerItem>
           ))}
-          </StaggerChildren>
-        )}
+        </StaggerChildren>
 
         {/* View all link */}
         <FadeIn delay={0.3}>

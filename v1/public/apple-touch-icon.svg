@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none">
+  <!-- Background -->
+  <rect width="180" height="180" rx="40" fill="#00a3e0"/>
+  
+  <!-- Water droplets -->
+  <path d="M 56 45 Q 56 33 62 33 Q 68 33 68 45 Q 68 51 62 57 Q 56 51 56 45 Z" fill="#ffffff" opacity="0.9"/>
+  <path d="M 90 39 Q 90 28 96 28 Q 102 28 102 39 Q 102 45 96 51 Q 90 45 90 39 Z" fill="#ffffff" opacity="0.9"/>
+  <path d="M 124 45 Q 124 33 130 33 Q 136 33 136 45 Q 136 51 130 57 Q 124 51 124 45 Z" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Car silhouette -->
+  <g fill="#ffffff">
+    <!-- Car body -->
+    <path d="M 45 113 L 56 90 L 73 79 L 107 79 L 124 90 L 135 113 L 135 124 L 130 124 L 130 118 C 130 114 126 110 121.5 110 C 117 110 113 114 113 118 L 113 124 L 67 124 L 67 118 C 67 114 63 110 58.5 110 C 54 110 50 114 50 118 L 50 124 L 45 124 Z"/>
+    <!-- Windows -->
+    <path d="M 62 90 L 70 84 L 85 84 L 85 96 L 62 96 Z" fill="#00a3e0"/>
+    <path d="M 96 84 L 110 84 L 118 90 L 118 96 L 96 96 Z" fill="#00a3e0"/>
+    <!-- Wheels -->
+    <circle cx="58.5" cy="118" r="7" fill="#ffffff"/>
+    <circle cx="121.5" cy="118" r="7" fill="#ffffff"/>
+    <circle cx="58.5" cy="118" r="3.4" fill="#00a3e0"/>
+    <circle cx="121.5" cy="118" r="3.4" fill="#00a3e0"/>
+    <!-- Shine details on car -->
+    <ellipse cx="75" cy="92" rx="3" ry="1.5" fill="#00a3e0" opacity="0.3"/>
+    <ellipse cx="105" cy="92" rx="3" ry="1.5" fill="#00a3e0" opacity="0.3"/>
+  </g>
+</svg>

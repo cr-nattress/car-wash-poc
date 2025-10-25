@@ -135,18 +135,18 @@ export default function ContactPage() {
                 </div>
                 <h3 className="mb-2 text-lg font-bold text-gray-900">Visit Us</h3>
                 <p className="text-gray-700">
-                  Downtown Scranton
+                  West Hazleton
                   <br />
-                  425 Lackawanna Avenue
+                  360 Susquehanna Blvd
                   <br />
-                  Scranton, PA 18503
+                  West Hazleton, PA 18202
                 </p>
                 <p className="mt-4 text-gray-700">
-                  Wilkes-Barre Plaza
+                  Dallas
                   <br />
-                  890 Commerce Boulevard
+                  2955 Memorial Hwy
                   <br />
-                  Wilkes-Barre, PA 18702
+                  Dallas, PA 18612
                 </p>
               </Card>
             </div>
@@ -193,7 +193,7 @@ export default function ContactPage() {
                     fullWidth
                     value={formState.phone}
                     onChange={handleChange}
-                    placeholder="(570) 555-0100"
+                    placeholder="(570) 459-7000"
                     helperText="Optional"
                   />
 
