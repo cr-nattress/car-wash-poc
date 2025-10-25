@@ -155,7 +155,9 @@ export default async function MembershipPage() {
                     <span className="text-4xl font-bold text-gray-900">${tier.price}</span>
                     <span className="text-gray-600">/month</span>
                   </div>
-                  <p className="mb-6 text-gray-600">{tier.description}</p>
+                  {tier.savings && (
+                    <p className="mb-6 text-sm font-semibold text-green-600">{tier.savings}</p>
+                  )}
                   <ul className="mb-6 space-y-3">
                     {tier.features.map((feature, index) => (
                       <li key={index} className="flex items-start">
