@@ -42,7 +42,7 @@ export default function NewsletterSignup({
     <>
       {submitStatus === 'success' && (
         <div className="mb-4 rounded-lg bg-green-50 p-3 text-sm text-green-800">
-          ✓ Thanks for subscribing! Check your email for a confirmation.
+          Thanks for subscribing! Check your email for a confirmation.
         </div>
       )}
 
