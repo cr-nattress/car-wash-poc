@@ -1,39 +1,63 @@
+'use client'
+
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Container from '@/components/ui/Container'
 import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
+import { PricingCardSkeleton } from '@/components/ui/Skeleton'
+import FadeIn from '@/components/animations/FadeIn'
+import ScaleIn from '@/components/animations/ScaleIn'
 import { getPricingTiers } from '@/lib/data'
+import type { PricingTier } from '@/types'
 
 /**
  * Pricing preview section for the homepage
  */
-export default async function PricingPreview() {
-  const tiers = await getPricingTiers()
+export default function PricingPreview() {
+  const [tiers, setTiers] = useState<PricingTier[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    getPricingTiers().then(data => {
+      setTiers(data)
+      setLoading(false)
+    })
+  }, [])
 
   return (
     <section className="bg-white py-16 lg:py-24">
       <Container>
         {/* Section header */}
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-gray-900 lg:text-5xl">
-            Unlimited Membership Plans
-          </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600">
-            Choose the perfect membership tier for your vehicle. All plans include unlimited monthly
-            washes and exclusive member benefits.
-          </p>
-        </div>
+        <FadeIn>
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-4xl font-bold text-gray-900 lg:text-5xl">
+              Unlimited Membership Plans
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-gray-600">
+              Choose the perfect membership tier for your vehicle. All plans include unlimited monthly
+              washes and exclusive member benefits.
+            </p>
+          </div>
+        </FadeIn>
 
         {/* Pricing cards */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {tiers.map(tier => (
-            <Card
-              key={tier.id}
-              variant={tier.popular ? 'elevated' : 'default'}
-              padding="none"
-              className={tier.popular ? 'border-2 border-primary-500' : ''}
-            >
+        {loading ? (
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <PricingCardSkeleton key={i} />
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            {tiers.map((tier, index) => (
+            <ScaleIn key={tier.id} delay={index * 0.1}>
+              <Card
+                variant={tier.popular ? 'elevated' : 'default'}
+                padding="none"
+                className={tier.popular ? 'border-2 border-primary-500' : ''}
+              >
               {tier.popular && (
                 <div className="bg-primary-500 px-6 py-2 text-center">
                   <Badge variant="warning" size="sm">
@@ -86,19 +110,23 @@ export default async function PricingPreview() {
                   </Button>
                 </Link>
               </div>
-            </Card>
+              </Card>
+            </ScaleIn>
           ))}
-        </div>
+          </div>
+        )}
 
         {/* Additional info */}
-        <div className="mt-12 text-center">
-          <p className="text-gray-600">
-            All memberships are month-to-month with no long-term contracts.{' '}
-            <Link href="/pricing" className="font-semibold text-primary-600 hover:text-primary-700">
-              Learn more about membership benefits →
-            </Link>
-          </p>
-        </div>
+        <FadeIn delay={0.4}>
+          <div className="mt-12 text-center">
+            <p className="text-gray-600">
+              All memberships are month-to-month with no long-term contracts.{' '}
+              <Link href="/pricing" className="font-semibold text-primary-600 hover:text-primary-700">
+                Learn more about membership benefits →
+              </Link>
+            </p>
+          </div>
+        </FadeIn>
       </Container>
     </section>
   )

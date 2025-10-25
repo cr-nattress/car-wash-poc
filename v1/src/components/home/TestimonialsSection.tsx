@@ -1,32 +1,57 @@
+'use client'
+
+import { useEffect, useState } from 'react'
 import Container from '@/components/ui/Container'
 import Card from '@/components/ui/Card'
+import { TestimonialSkeleton } from '@/components/ui/Skeleton'
+import FadeIn from '@/components/animations/FadeIn'
+import StaggerChildren, { StaggerItem } from '@/components/animations/StaggerChildren'
+import AnimatedCounter from '@/components/animations/AnimatedCounter'
 import { getTestimonialsByRating } from '@/lib/data'
+import type { Testimonial } from '@/types'
 
 /**
  * Testimonials section for the homepage
  */
-export default async function TestimonialsSection() {
-  const testimonials = await getTestimonialsByRating(5) // Only 5-star reviews
-  const featuredTestimonials = testimonials.slice(0, 6) // Show first 6
+export default function TestimonialsSection() {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    getTestimonialsByRating(5).then(data => {
+      setTestimonials(data.slice(0, 6)) // Show first 6
+      setLoading(false)
+    })
+  }, [])
 
   return (
     <section className="bg-gray-50 py-16 lg:py-24">
       <Container>
         {/* Section header */}
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-gray-900 lg:text-5xl">
-            What Our Customers Say
-          </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600">
-            Don&apos;t just take our word for it. Here&apos;s what our satisfied customers have to say about
-            their experience with Superior Car Wash.
-          </p>
-        </div>
+        <FadeIn>
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-4xl font-bold text-gray-900 lg:text-5xl">
+              What Our Customers Say
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-gray-600">
+              Don&apos;t just take our word for it. Here&apos;s what our satisfied customers have to say about
+              their experience with Superior Car Wash.
+            </p>
+          </div>
+        </FadeIn>
 
         {/* Testimonials grid */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {featuredTestimonials.map(testimonial => (
-            <Card key={testimonial.id} variant="default" padding="md">
+        {loading ? (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <TestimonialSkeleton key={i} />
+            ))}
+          </div>
+        ) : (
+          <StaggerChildren className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
+            {testimonials.map(testimonial => (
+            <StaggerItem key={testimonial.id}>
+              <Card variant="default" padding="md">
               {/* Rating stars */}
               <div className="mb-3 flex items-center">
                 {[...Array(5)].map((_, i) => (
@@ -68,25 +93,35 @@ export default async function TestimonialsSection() {
                   <p className="mt-1 text-xs text-primary-600">{testimonial.service}</p>
                 )}
               </div>
-            </Card>
+              </Card>
+            </StaggerItem>
           ))}
-        </div>
+          </StaggerChildren>
+        )}
 
         {/* Trust indicators */}
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
-          <div className="text-center">
-            <div className="mb-2 text-4xl font-bold text-primary-600">10,000+</div>
-            <p className="text-gray-600">Happy Customers</p>
+        <FadeIn delay={0.4}>
+          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
+            <div className="text-center">
+              <div className="mb-2 text-4xl font-bold text-primary-600">
+                <AnimatedCounter value={10000} duration={2.5} suffix="+" />
+              </div>
+              <p className="text-gray-600">Happy Customers</p>
+            </div>
+            <div className="text-center">
+              <div className="mb-2 text-4xl font-bold text-primary-600">
+                <AnimatedCounter value={4.9} duration={2} suffix="/5" decimals={1} />
+              </div>
+              <p className="text-gray-600">Average Rating</p>
+            </div>
+            <div className="text-center">
+              <div className="mb-2 text-4xl font-bold text-primary-600">
+                <AnimatedCounter value={2} duration={1.5} />
+              </div>
+              <p className="text-gray-600">Convenient Locations</p>
+            </div>
           </div>
-          <div className="text-center">
-            <div className="mb-2 text-4xl font-bold text-primary-600">4.9/5</div>
-            <p className="text-gray-600">Average Rating</p>
-          </div>
-          <div className="text-center">
-            <div className="mb-2 text-4xl font-bold text-primary-600">2</div>
-            <p className="text-gray-600">Convenient Locations</p>
-          </div>
-        </div>
+        </FadeIn>
       </Container>
     </section>
   )
