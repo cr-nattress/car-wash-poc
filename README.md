@@ -132,7 +132,7 @@
 
 
 car-wash-poc/
-├── v1/                          # Main application directory
+├──                           # Main application directory
 │   ├── src/
 │   │   ├── app/                 # Next.js App Router pages
 │   │   │   ├── page.tsx         # Homepage
@@ -242,7 +242,7 @@ You should see the Superior Car Wash homepage with:
 
 ## Available Scripts
 
-All scripts should be run from the v1/ directory.
+All scripts should be run from the  directory.
 
 ### Development
 
@@ -289,7 +289,7 @@ npm run type-check
 Next.js App Router uses file-system based routing:
 
 typescript
-// v1/src/app/new-page/page.tsx
+// src/app/new-page/page.tsx
 export default function NewPage() {
   return <div><h1>New Page</h1></div>
 }
@@ -298,7 +298,7 @@ export default function NewPage() {
 ### Creating New Components
 
 typescript
-// v1/src/components/ui/MyComponent.tsx
+// src/components/ui/MyComponent.tsx
 import { cn } from '@/lib/utils'
 
 interface MyComponentProps {
@@ -313,7 +313,7 @@ export default function MyComponent({ className, children }: MyComponentProps) {
 
 ### Adding Data
 
-Add content to Markdown files in v1/src/data/:
+Add content to Markdown files in src/data/:
 
 markdown
 ---
@@ -336,7 +336,7 @@ Detailed content in Markdown format.
 
 ### Color Palette
 
-Brand colors defined in v1/tailwind.config.ts:
+Brand colors defined in tailwind.config.ts:
 
 typescript
 // Cyan Blue (building exterior)
@@ -365,7 +365,7 @@ xl: '1280px'  // Desktops
 
 ### Markdown-Based Content
 
-All dynamic content is stored in Markdown files with YAML frontmatter in v1/src/data/.
+All dynamic content is stored in Markdown files with YAML frontmatter in src/data/.
 
 | File | Purpose | Type Interface |
 |------|---------|----------------|
@@ -403,7 +403,7 @@ const service = await getServiceById('express-wash')
 
    - Base directory: v1
    - Build command: npm run build
-   - Publish directory: v1/.next
+   - Publish directory: .next
    - Node version: 18
 
 3. **Deploy**
