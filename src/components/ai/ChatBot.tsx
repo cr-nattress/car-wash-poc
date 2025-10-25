@@ -48,14 +48,29 @@ export default function ChatBot() {
     setIsLoading(true)
 
     try {
-      // TODO: Replace with actual AI API call
-      // For now, using mock responses
-      const response = await getMockResponse(input)
+      // Call the AI API route
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: input,
+          history: messages.map(m => ({
+            role: m.role,
+            content: m.content,
+          })),
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to get response')
+      }
+
+      const data = await response.json()
 
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: response,
+        content: data.message,
         timestamp: new Date(),
       }
 
@@ -226,48 +241,4 @@ export default function ChatBot() {
       </AnimatePresence>
     </>
   )
-}
-
-// Mock response function - will be replaced with actual AI API
-async function getMockResponse(userInput: string): Promise<string> {
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 1000))
-
-  const input = userInput.toLowerCase()
-
-  // Simple keyword-based responses
-  if (input.includes('price') || input.includes('cost') || input.includes('how much')) {
-    return "Our membership plans start at $24/month for Basic Shine, $34/month for Premium Gloss (most popular!), and $42/month for Ultimate Protect. All plans include unlimited washes. Would you like to learn more about a specific tier?"
-  }
-
-  if (input.includes('hours') || input.includes('open') || input.includes('when')) {
-    return "We're open 7 days a week! Our hours are Monday-Saturday 7am-8pm, and Sunday 8am-6pm. You can also book an appointment online anytime."
-  }
-
-  if (input.includes('location') || input.includes('where') || input.includes('address')) {
-    return "We have two convenient locations: Downtown Scranton at 123 Main St, and Wilkes-Barre at 456 Market St. Both locations offer the same great services!"
-  }
-
-  if (input.includes('book') || input.includes('appointment') || input.includes('schedule')) {
-    return "I'd be happy to help you book an appointment! You can book online by clicking the 'Book Now' button, or I can guide you through the process. What service are you interested in?"
-  }
-
-  if (input.includes('service') || input.includes('wash')) {
-    return "We offer four main services: Express Wash ($12), Deluxe Wash ($22), Ultimate Wash ($32), and Full Detail ($99+). We also have unlimited membership plans. What type of service are you looking for?"
-  }
-
-  if (input.includes('membership') || input.includes('unlimited')) {
-    return "Our unlimited membership plans are our best value! You can wash your car as many times as you want each month. Basic Shine is $24/mo, Premium Gloss is $34/mo, and Ultimate Protect is $42/mo. Want to see what's included in each?"
-  }
-
-  if (input.includes('thank') || input.includes('thanks')) {
-    return "You're welcome! Is there anything else I can help you with today?"
-  }
-
-  if (input.includes('bye') || input.includes('goodbye')) {
-    return "Thanks for chatting! Have a great day, and we look forward to seeing you at Superior Car Wash!"
-  }
-
-  // Default response
-  return "I'd be happy to help! You can ask me about our services, pricing, locations, hours, or booking an appointment. What would you like to know?"
 }

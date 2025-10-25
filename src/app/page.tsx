@@ -2,6 +2,7 @@ import Hero from '@/components/home/Hero'
 import ServicesShowcase from '@/components/home/ServicesShowcase'
 import PricingPreview from '@/components/home/PricingPreview'
 import TestimonialsSection from '@/components/home/TestimonialsSection'
+import WeatherBanner from '@/components/ai/WeatherBanner'
 import { getServices, getPricingTiers, getTestimonialsByRating } from '@/lib/data'
 
 export default async function HomePage() {
@@ -17,6 +18,7 @@ export default async function HomePage() {
 
   return (
     <>
+      <WeatherBanner />
       <Hero />
       <ServicesShowcase services={washTiers} />
       <PricingPreview tiers={pricingTiers} />
