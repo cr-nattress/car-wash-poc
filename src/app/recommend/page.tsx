@@ -1,12 +1,7 @@
-import { Metadata } from 'next'
+'use client'
+
 import Container from '@/components/ui/Container'
 import ServiceRecommender from '@/components/ai/ServiceRecommender'
-
-export const metadata: Metadata = {
-  title: 'Find Your Perfect Service | Superior Car Wash',
-  description:
-    'Not sure which service or membership is right for you? Take our quick quiz and get a personalized recommendation.',
-}
 
 export default function RecommendPage() {
   return (
