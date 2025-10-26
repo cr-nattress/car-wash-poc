@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer'
 import ChatBot from '@/components/ai/ChatBot'
 import ExitIntentModal from '@/components/features/ExitIntentModal'
 import StructuredData from '@/components/seo/StructuredData'
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -38,6 +39,7 @@ export default function RootLayout({
         <StructuredData type="WebSite" />
       </head>
       <body className={inter.className}>
+        <GoogleAnalytics />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
