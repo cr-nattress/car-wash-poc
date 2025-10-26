@@ -5,6 +5,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ChatBot from '@/components/ai/ChatBot'
 import ExitIntentModal from '@/components/features/ExitIntentModal'
+import StructuredData from '@/components/seo/StructuredData'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,6 +33,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <StructuredData type="LocalBusiness" />
+        <StructuredData type="WebSite" />
+      </head>
       <body className={inter.className}>
         <Header />
         <main className="min-h-screen">{children}</main>
