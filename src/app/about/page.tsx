@@ -3,6 +3,8 @@ import { Metadata } from 'next'
 import Container from '@/components/ui/Container'
 import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
+import VideoPlayer from '@/components/features/VideoPlayer'
+import AnimatedCounter from '@/components/features/AnimatedCounter'
 
 export const metadata: Metadata = {
   title: 'About Us | Superior Car Wash',
@@ -47,8 +49,27 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Our Values */}
+      {/* Video Showcase */}
       <section className="bg-gray-50 py-16">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            <h2 className="mb-6 text-center text-4xl font-bold text-gray-900">See Us in Action</h2>
+            <p className="mb-8 text-center text-lg text-gray-600">
+              Take a virtual tour of our state-of-the-art facilities and see why Superior Car Wash is the
+              premier choice for car care in Northeast Pennsylvania.
+            </p>
+            <VideoPlayer
+              videoId="dQw4w9WgXcQ"
+              platform="youtube"
+              title="Superior Car Wash - Virtual Tour"
+              description="Experience our cutting-edge technology and exceptional service"
+            />
+          </div>
+        </Container>
+      </section>
+
+      {/* Our Values */}
+      <section className="bg-white py-16">
         <Container>
           <h2 className="mb-12 text-center text-4xl font-bold text-gray-900">Our Values</h2>
           <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3">
@@ -131,7 +152,7 @@ export default function AboutPage() {
       </section>
 
       {/* Technology */}
-      <section className="bg-white py-16">
+      <section className="bg-gray-50 py-16">
         <Container>
           <div className="mx-auto max-w-4xl">
             <h2 className="mb-6 text-center text-4xl font-bold text-gray-900">
@@ -156,29 +177,38 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-white py-16">
         <Container>
           <div className="mx-auto grid max-w-4xl grid-cols-2 gap-8 text-center md:grid-cols-4">
             <div>
-              <div className="mb-2 text-5xl font-bold text-primary-600">10,000+</div>
+              <div className="mb-2 text-5xl font-bold text-primary-600">
+                <AnimatedCounter end={10000} suffix="+" duration={2500} />
+              </div>
               <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
                 Happy Customers
               </p>
             </div>
             <div>
-              <div className="mb-2 text-5xl font-bold text-primary-600">2</div>
+              <div className="mb-2 text-5xl font-bold text-primary-600">
+                <AnimatedCounter end={2} duration={1500} />
+              </div>
               <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
                 Locations
               </p>
             </div>
             <div>
-              <div className="mb-2 text-5xl font-bold text-primary-600">4.9/5</div>
+              <div className="mb-2 text-5xl font-bold text-primary-600">
+                <AnimatedCounter end={4.9} decimals={1} duration={2000} />
+                <span>/5</span>
+              </div>
               <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
                 Average Rating
               </p>
             </div>
             <div>
-              <div className="mb-2 text-5xl font-bold text-primary-600">80%</div>
+              <div className="mb-2 text-5xl font-bold text-primary-600">
+                <AnimatedCounter end={80} suffix="%" duration={2000} />
+              </div>
               <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
                 Water Recycled
               </p>
