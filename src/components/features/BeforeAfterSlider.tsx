@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
@@ -45,25 +45,25 @@ export default function BeforeAfterSlider({
     setSliderPosition(Math.max(0, Math.min(100, percentage)))
   }
 
-  const handleMouseMove = (e: MouseEvent) => {
+  const handleMouseMove = useCallback((e: MouseEvent) => {
     if (isDragging) {
       handleMove(e.clientX)
     }
-  }
+  }, [isDragging])
 
-  const handleTouchMove = (e: TouchEvent) => {
+  const handleTouchMove = useCallback((e: TouchEvent) => {
     if (isDragging && e.touches[0]) {
       handleMove(e.touches[0].clientX)
     }
-  }
+  }, [isDragging])
 
   const handleStart = () => {
     setIsDragging(true)
   }
 
-  const handleEnd = () => {
+  const handleEnd = useCallback(() => {
     setIsDragging(false)
-  }
+  }, [])
 
   useEffect(() => {
     if (isDragging) {
@@ -79,7 +79,7 @@ export default function BeforeAfterSlider({
         document.removeEventListener('touchend', handleEnd)
       }
     }
-  }, [isDragging])
+  }, [isDragging, handleMouseMove, handleTouchMove, handleEnd])
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     handleMove(e.clientX)

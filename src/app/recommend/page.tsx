@@ -17,7 +17,7 @@ export default function RecommendPage() {
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="mb-4 text-5xl font-bold">Find Your Perfect Service</h1>
             <p className="text-xl text-primary-50">
-              Answer 3 quick questions and we'll recommend the best option for your needs
+              Answer 3 quick questions and we&apos;ll recommend the best option for your needs
             </p>
           </div>
         </Container>
@@ -74,7 +74,7 @@ export default function RecommendPage() {
                 </div>
                 <h3 className="mb-2 text-xl font-semibold text-gray-900">Save Money</h3>
                 <p className="text-gray-600">
-                  We'll show you how to get the most value based on your budget
+                  We&apos;ll show you how to get the most value based on your budget
                 </p>
               </div>
 

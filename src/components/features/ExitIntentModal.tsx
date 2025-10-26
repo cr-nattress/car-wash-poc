@@ -191,7 +191,7 @@ export default function ExitIntentModal() {
                     </svg>
                   </div>
                 </div>
-                <h3 className="mb-2 text-2xl font-bold text-gray-900">You're All Set!</h3>
+                <h3 className="mb-2 text-2xl font-bold text-gray-900">You&apos;re All Set!</h3>
                 <p className="text-gray-600">
                   Check your email for your $5 discount code and exclusive offers.
                 </p>

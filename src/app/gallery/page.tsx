@@ -141,7 +141,7 @@ export default function GalleryPage() {
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-4 text-4xl font-bold">Experience the Difference</h2>
             <p className="mb-8 text-xl text-primary-50">
-              Visit one of our locations today and see why we're Northeast Pennsylvania's premier car wash
+              Visit one of our locations today and see why we&apos;re Northeast Pennsylvania&apos;s premier car wash
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
               <a
