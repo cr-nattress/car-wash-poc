@@ -86,106 +86,104 @@
 
 ### Frontend
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Next.js** | 14.2.13 | React framework with App Router and SSR |
-| **React** | 18.3.1 | UI library for component-based architecture |
-| **TypeScript** | 5.x | Type-safe development and improved DX |
-| **Tailwind CSS** | 3.4.1 | Utility-first styling framework |
-| **Framer Motion** | 12.23.24 | Animation library for smooth transitions |
+| Technology        | Version  | Purpose                                     |
+| ----------------- | -------- | ------------------------------------------- |
+| **Next.js**       | 14.2.13  | React framework with App Router and SSR     |
+| **React**         | 18.3.1   | UI library for component-based architecture |
+| **TypeScript**    | 5.x      | Type-safe development and improved DX       |
+| **Tailwind CSS**  | 3.4.1    | Utility-first styling framework             |
+| **Framer Motion** | 12.23.24 | Animation library for smooth transitions    |
 
 ### Forms & Validation
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **React Hook Form** | 7.65.0 | Performant form management |
-| **Zod** | 4.1.12 | Schema validation with TypeScript inference |
-| **@hookform/resolvers** | 5.2.2 | Bridge between React Hook Form and Zod |
+| Technology              | Version | Purpose                                     |
+| ----------------------- | ------- | ------------------------------------------- |
+| **React Hook Form**     | 7.65.0  | Performant form management                  |
+| **Zod**                 | 4.1.12  | Schema validation with TypeScript inference |
+| **@hookform/resolvers** | 5.2.2   | Bridge between React Hook Form and Zod      |
 
 ### Content & Data
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Gray Matter** | 4.0.3 | Parse Markdown frontmatter for data |
-| **Remark** | 15.0.1 | Markdown processor |
-| **Remark HTML** | 16.0.1 | Convert Markdown to HTML |
+| Technology      | Version | Purpose                             |
+| --------------- | ------- | ----------------------------------- |
+| **Gray Matter** | 4.0.3   | Parse Markdown frontmatter for data |
+| **Remark**      | 15.0.1  | Markdown processor                  |
+| **Remark HTML** | 16.0.1  | Convert Markdown to HTML            |
 
 ### Utilities
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **clsx** | 2.1.1 | Conditional class name construction |
-| **Tailwind Merge** | 3.3.1 | Merge Tailwind classes intelligently |
-| **date-fns** | 4.1.0 | Modern date utility library |
+| Technology         | Version | Purpose                              |
+| ------------------ | ------- | ------------------------------------ |
+| **clsx**           | 2.1.1   | Conditional class name construction  |
+| **Tailwind Merge** | 3.3.1   | Merge Tailwind classes intelligently |
+| **date-fns**       | 4.1.0   | Modern date utility library          |
 
 ### Development Tools
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **ESLint** | 8.x | Code linting and quality enforcement |
-| **Prettier** | 3.6.2 | Code formatting with Tailwind plugin |
-| **Autoprefixer** | 10.4.20 | CSS vendor prefix automation |
+| Technology       | Version | Purpose                              |
+| ---------------- | ------- | ------------------------------------ |
+| **ESLint**       | 8.x     | Code linting and quality enforcement |
+| **Prettier**     | 3.6.2   | Code formatting with Tailwind plugin |
+| **Autoprefixer** | 10.4.20 | CSS vendor prefix automation         |
 
 ---
 
 ## Project Structure
 
-
 car-wash-poc/
-├──                           # Main application directory
-│   ├── src/
-│   │   ├── app/                 # Next.js App Router pages
-│   │   │   ├── page.tsx         # Homepage
-│   │   │   ├── layout.tsx       # Root layout with metadata
-│   │   │   ├── template.tsx     # Page transition wrapper
-│   │   │   ├── globals.css      # Global styles & Tailwind imports
-│   │   │   ├── about/           # About page
-│   │   │   ├── book/            # Booking page
-│   │   │   ├── contact/         # Contact page
-│   │   │   ├── faq/             # FAQ page
-│   │   │   ├── locations/       # Locations listing
-│   │   │   ├── pricing/         # Membership pricing
-│   │   │   └── services/        # Services pages
-│   │   │       ├── page.tsx     # Services listing
-│   │   │       └── [id]/        # Dynamic service detail pages
-│   │   │
-│   │   ├── components/
-│   │   │   ├── animations/      # Reusable animation components
-│   │   │   ├── booking/         # Booking-specific components
-│   │   │   ├── common/          # Shared components
-│   │   │   ├── faq/             # FAQ components
-│   │   │   ├── home/            # Homepage sections
-│   │   │   ├── layout/          # Layout components
-│   │   │   └── ui/              # Base UI components
-│   │   │
-│   │   ├── data/                # Markdown data files
-│   │   │   ├── faqs.md
-│   │   │   ├── locations.md
-│   │   │   ├── pricing.md
-│   │   │   ├── services.md
-│   │   │   └── testimonials.md
-│   │   │
-│   │   ├── lib/                 # Utilities and helpers
-│   │   │   ├── constants.ts     # App-wide constants
-│   │   │   ├── data.ts          # Data fetching functions
-│   │   │   ├── schemas.ts       # Zod validation schemas
-│   │   │   └── utils.ts         # Utility functions
-│   │   │
-│   │   └── types/               # TypeScript type definitions
-│   │       └── index.ts
-│   │
-│   ├── public/                  # Static assets
-│   ├── .eslintrc.json
-│   ├── .prettierrc
-│   ├── next.config.mjs
-│   ├── package.json
-│   ├── tailwind.config.ts
-│   └── tsconfig.json
+├── # Main application directory
+│ ├── src/
+│ │ ├── app/ # Next.js App Router pages
+│ │ │ ├── page.tsx # Homepage
+│ │ │ ├── layout.tsx # Root layout with metadata
+│ │ │ ├── template.tsx # Page transition wrapper
+│ │ │ ├── globals.css # Global styles & Tailwind imports
+│ │ │ ├── about/ # About page
+│ │ │ ├── book/ # Booking page
+│ │ │ ├── contact/ # Contact page
+│ │ │ ├── faq/ # FAQ page
+│ │ │ ├── locations/ # Locations listing
+│ │ │ ├── pricing/ # Membership pricing
+│ │ │ └── services/ # Services pages
+│ │ │ ├── page.tsx # Services listing
+│ │ │ └── [id]/ # Dynamic service detail pages
+│ │ │
+│ │ ├── components/
+│ │ │ ├── animations/ # Reusable animation components
+│ │ │ ├── booking/ # Booking-specific components
+│ │ │ ├── common/ # Shared components
+│ │ │ ├── faq/ # FAQ components
+│ │ │ ├── home/ # Homepage sections
+│ │ │ ├── layout/ # Layout components
+│ │ │ └── ui/ # Base UI components
+│ │ │
+│ │ ├── data/ # Markdown data files
+│ │ │ ├── faqs.md
+│ │ │ ├── locations.md
+│ │ │ ├── pricing.md
+│ │ │ ├── services.md
+│ │ │ └── testimonials.md
+│ │ │
+│ │ ├── lib/ # Utilities and helpers
+│ │ │ ├── constants.ts # App-wide constants
+│ │ │ ├── data.ts # Data fetching functions
+│ │ │ ├── schemas.ts # Zod validation schemas
+│ │ │ └── utils.ts # Utility functions
+│ │ │
+│ │ └── types/ # TypeScript type definitions
+│ │ └── index.ts
+│ │
+│ ├── public/ # Static assets
+│ ├── .eslintrc.json
+│ ├── .prettierrc
+│ ├── next.config.mjs
+│ ├── package.json
+│ ├── tailwind.config.ts
+│ └── tsconfig.json
 │
-├── planning/                    # Project documentation
-├── backlog/                     # Development backlog
-└── images/                      # Brand reference photos
-
+├── planning/ # Project documentation
+├── backlog/ # Development backlog
+└── images/ # Brand reference photos
 
 ---
 
@@ -206,25 +204,21 @@ Ensure you have the following installed:
    bash
    git clone https://github.com/yourusername/car-wash-poc.git
    cd car-wash-poc
-   
 
 2. **Navigate to the application directory**
 
    bash
    cd v1
-   
 
 3. **Install dependencies**
 
    bash
    npm install
-   
 
 4. **Run the development server**
 
    bash
    npm run dev
-   
 
 5. **Open your browser**
 
@@ -233,6 +227,7 @@ Ensure you have the following installed:
 ### Expected Output
 
 You should see the Superior Car Wash homepage with:
+
 - Animated hero section with call-to-action buttons
 - Services showcase with three wash tiers
 - Pricing preview with membership options
@@ -242,43 +237,51 @@ You should see the Superior Car Wash homepage with:
 
 ## Available Scripts
 
-All scripts should be run from the  directory.
+All scripts should be run from the directory.
 
 ### Development
 
 bash
-# Start development server with hot reload
-npm run dev
 
+# Start development server with hot reload
+
+npm run dev
 
 ### Building
 
 bash
+
 # Create optimized production build
+
 npm run build
 
 # Start production server (after build)
-npm start
 
+npm start
 
 ### Code Quality
 
 bash
+
 # Run ESLint to check for code issues
+
 npm run lint
 
 # Run ESLint and auto-fix issues
+
 npm run lint:fix
 
 # Format code with Prettier
+
 npm run format
 
 # Check formatting without making changes
+
 npm run format:check
 
 # Type-check TypeScript without emitting files
-npm run type-check
 
+npm run type-check
 
 ---
 
@@ -291,9 +294,8 @@ Next.js App Router uses file-system based routing:
 typescript
 // src/app/new-page/page.tsx
 export default function NewPage() {
-  return <div><h1>New Page</h1></div>
+return <div><h1>New Page</h1></div>
 }
-
 
 ### Creating New Components
 
@@ -302,33 +304,33 @@ typescript
 import { cn } from '@/lib/utils'
 
 interface MyComponentProps {
-  className?: string
-  children: React.ReactNode
+className?: string
+children: React.ReactNode
 }
 
 export default function MyComponent({ className, children }: MyComponentProps) {
-  return <div className={cn('base-styles', className)}>{children}</div>
+return <div className={cn('base-styles', className)}>{children}</div>
 }
-
 
 ### Adding Data
 
 Add content to Markdown files in src/data/:
 
-markdown
----
+## markdown
+
 id: new-service
 name: New Service
 price: 29
 features:
-  - Feature 1
-  - Feature 2
+
+- Feature 1
+- Feature 2
+
 ---
 
 # Service Description
 
 Detailed content in Markdown format.
-
 
 ---
 
@@ -348,16 +350,14 @@ accent: { 500: '#ff6600' }
 // Yellow (equipment)
 yellow: { 500: '#ffd700' }
 
-
 ### Responsive Breakpoints
 
 typescript
-sm: '640px'   // Phones in landscape
-md: '768px'   // Tablets
-lg: '1024px'  // Laptops
-xl: '1280px'  // Desktops
+sm: '640px' // Phones in landscape
+md: '768px' // Tablets
+lg: '1024px' // Laptops
+xl: '1280px' // Desktops
 2xl: '1536px' // Large desktops
-
 
 ---
 
@@ -367,13 +367,13 @@ xl: '1280px'  // Desktops
 
 All dynamic content is stored in Markdown files with YAML frontmatter in src/data/.
 
-| File | Purpose | Type Interface |
-|------|---------|----------------|
-| services.md | Service offerings | Service |
-| pricing.md | Membership tiers | PricingTier |
-| locations.md | Business locations | Location |
-| testimonials.md | Customer reviews | Testimonial |
-| faqs.md | FAQ entries | FAQ |
+| File            | Purpose            | Type Interface |
+| --------------- | ------------------ | -------------- |
+| services.md     | Service offerings  | Service        |
+| pricing.md      | Membership tiers   | PricingTier    |
+| locations.md    | Business locations | Location       |
+| testimonials.md | Customer reviews   | Testimonial    |
+| faqs.md         | FAQ entries        | FAQ            |
 
 ### Fetching Data
 
@@ -386,7 +386,6 @@ const services = await getServices()
 // Get single service
 const service = await getServiceById('express-wash')
 
-
 ---
 
 ## Deployment
@@ -397,10 +396,8 @@ const service = await getServiceById('express-wash')
 
    bash
    git push origin main
-   
 
 2. **Configure Netlify**
-
    - Base directory: v1
    - Build command: npm run build
    - Publish directory: .next
@@ -417,41 +414,38 @@ npm i -g vercel
 cd v1
 vercel
 
-
 ---
 
 ## Architecture
 
 ### Component Architecture
 
-
 Components
-├── app/              # Page-level (Server Components)
-├── layout/           # Header, Footer
-├── home/             # Homepage sections
-├── booking/          # Booking flow
-├── common/           # Shared components
-├── animations/       # Animation wrappers
-└── ui/               # Base UI components
-
+├── app/ # Page-level (Server Components)
+├── layout/ # Header, Footer
+├── home/ # Homepage sections
+├── booking/ # Booking flow
+├── common/ # Shared components
+├── animations/ # Animation wrappers
+└── ui/ # Base UI components
 
 ### Server vs Client Components
 
 **Server Components** (default):
-- Page components (app/**/page.tsx)
+
+- Page components (app/\*\*/page.tsx)
 - Data fetching components
 - Static content
 
 **Client Components** ('use client'):
+
 - Forms with user interaction
 - Components with hooks
 - Animation components (Framer Motion)
 
 ### Data Flow
 
-
 Markdown Files → Data Layer → Type Interfaces → Server Components → UI Components
-
 
 ---
 
